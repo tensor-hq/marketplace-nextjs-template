@@ -1,8 +1,5 @@
 # tmarket
 
-This project is generated with the [create-solana-dapp](https://github.com/solana-developers/create-solana-dapp) generator.
-
-## Getting Started
 
 ### Prerequisites
 
@@ -31,20 +28,12 @@ npm run dev
 
 ## Apps
 
-### web
+## Env
 
-This is a React app.
-
-#### Commands
-
-Start the web app
-
-```shell
-npm run dev
 ```
-
-Build the web app
-
-```shell
-npm run build
+NEXT_PUBLIC_SOLANA_RPC_URL=
+SOLANA_RPC_URL=
+TENSOR_API_KEY=
+HELIUS_API_KEY=
+NEXT_PUBLIC_COLLECTION_SLUG=
 ```

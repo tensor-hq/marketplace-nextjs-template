@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 html,
-body {
+body .main{
   height: 100%;
+  background-color: #111314;
+}
+
+html {
+    font-family: "Press Start 2P";
+    font-size: small;
 }
 
 .wallet-adapter-button-trigger {
@@ -16,4 +22,60 @@ body {
 .wallet-adapter-dropdown-list,
 .wallet-adapter-button {
   font-family: inherit !important;
+}
+
+.stats-box {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  
+}
+
+.nft-card {
+  /* Add your card styles here */
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nft-card__buy-button{
+    display: inline-block;
+    padding: 7px 12px;
+    /* margin: 10px; */
+    border-radius: 8px;
+    background-color: rgb(100, 26, 230);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+nft-card__badge {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  z-index: 1; /* Make sure the badge appears on top of other elements */
+  /* New styles */
+  border-radius: 8px;
+  background-color: rgba(128, 128, 128, 0.5);
+  padding: 4px 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+
+}
+
+.nft-card__add-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1; /* Make sure the button appears on top of other elements */
+  /* New styles */
+  border-radius: 75%;
+  background-color: rgba(128, 128, 128, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
