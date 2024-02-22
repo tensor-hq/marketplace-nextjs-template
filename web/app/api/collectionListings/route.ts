@@ -8,9 +8,10 @@ export async function GET(request: Request) {
     userParams.entries()
   );
 
-  console.log('collectionSlug: ', collectionSlug);
-  console.log('limit: ', limit);
-  console.log('cursor: ', cursor);
+  // Debugging
+  // console.log('collectionSlug: ', collectionSlug);
+  // console.log('limit: ', limit);
+  // console.log('cursor: ', cursor);
 
   try {
     const url = `https://api.mainnet.tensordev.io/api/v1/mint/collection?slug=${collectionSlug}&sortBy=ListingPriceAsc&limit=${limit}&onlyListings=true${
@@ -26,7 +27,7 @@ export async function GET(request: Request) {
     console.log('[API] collectionListings 200 OK');
     return new Response(JSON.stringify(response.data));
   } catch (error) {
-    console.log('[API] collectionListings 500 ERROR');
+    console.log('[API] collectionListings 500 ERROR', error);
     return new Response(JSON.stringify(error));
   }
 }

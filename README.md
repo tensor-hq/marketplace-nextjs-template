@@ -23,7 +23,7 @@ cd tmarket
 #### Install Dependencies
 
 ```shell
-npm run install
+npm install
 ```
 
 #### Set environment variables in .env

@@ -61,7 +61,6 @@ export default function Home() {
         },
       })
       .then((response) => {
-        console.log(response.data);
         setNfts([...nfts, ...response.data.mints]);
         setCursor(response.data.page.endCursor);
         setHasMore(response.data.page.hasMore);
@@ -97,12 +96,9 @@ export default function Home() {
 
   useMemo(() => {
     const walletBalance = async () => {
-      console.log("updating balance")
       const connection = new Connection(process.env.NEXT_PUBLIC_SOLANA_RPC_URL!);
       const balance = await connection.getBalance(wallet.publicKey!)
-      console.log(balance/LAMPORTS_PER_SOL)
       setBalance(balance / LAMPORTS_PER_SOL)
-
     };
 
     if (wallet.connected) walletBalance();
@@ -128,19 +124,19 @@ export default function Home() {
           <div className="grid grid-cols-4 gap-4 text-center text-small">
             <div className="stats-box  p-4">
               <h2 className="text-lg font-bold">Total NFTs</h2>
-              <p>{stats.statsV2.numMints}</p>
+              <p>{stats.stats.numMints}</p>
             </div>
             <div className="stats-box p-4">
               <h2 className="text-lg font-bold">Total Sales</h2>
-              <p>{stats.statsV2.salesAll}</p>
+              <p>{stats.stats.salesAll}</p>
             </div>
             <div className="stats-box   p-4">
               <h2 className="text-lg font-bold">Listings</h2>
-              <p>{stats.statsV2.numListed}</p>
+              <p>{stats.stats.numListed}</p>
             </div>
             <div className="stats-box  p-4">
               <h2 className="text-lg font-bold">Marketcap</h2>
-              <p>{ Math.round(stats.statsV2.marketCap / LAMPORTS_PER_SOL)} ◎</p>
+              <p>{ Math.round(stats.stats.marketCap / LAMPORTS_PER_SOL)} ◎</p>
             </div>
           </div>
         </div>
@@ -163,7 +159,7 @@ export default function Home() {
                   buyer={wallet.publicKey?.toBase58()}
                   key={nft.mint}
                   nft={nft}
-                  supply={stats.statsV2.numMints}
+                  supply={stats.stats.numMints}
                   selected={true}
                   signTransaction={wallet.signTransaction}
                   signAllTransactions={wallet.signAllTransactions}
