@@ -28,10 +28,8 @@ npm install
 
 #### Set environment variables in .env
 ```
-NEXT_PUBLIC_SOLANA_RPC_URL=               # Frontend Solana RPC
-SOLANA_RPC_URL=                           # Backend  Solana RPC
-TENSOR_API_KEY=                           
-NEXT_PUBLIC_COLLECTION_SLUG=              
+cp .env.sample .env
+vim .env
 ```
 
 #### Start the web app

@@ -45,3 +45,4 @@ Thumbs.db
 
 # ENV
 .env.local
+.env
