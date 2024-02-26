@@ -40,24 +40,7 @@ html {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
-.nft-card__cancel-button,
-.nft-card__list-button,
-.nft-card__buy-button {
-    display: inline-block;
-    padding: 7px 12px;
-    /* margin: 10px; */
-    border-radius: 8px;
-    background-color: rgb(100, 26, 230);
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-
-}
-
-nft-card__badge {
+.nft-card__badge {
   position: absolute;
   top: 20px;
   left: 10px;
