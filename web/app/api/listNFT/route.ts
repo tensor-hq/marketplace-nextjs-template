@@ -15,6 +15,7 @@ export async function GET(request: Request) {
   // console.log('buyer', buyer);
   console.log('mint', mint);
   console.log('owner', owner);
+  console.log('feePayer', owner);
   console.log('blockhash', blockhash);
   console.log('price', price);
 
@@ -35,9 +36,6 @@ export async function GET(request: Request) {
         },
       }
     );
-    
-
-      console.log(response.data)
 
     console.log('[API] listNFT 200 OK');
     return new Response(JSON.stringify(response.data));

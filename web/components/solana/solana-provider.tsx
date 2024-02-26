@@ -28,7 +28,8 @@ export const WalletButton = dynamic(
 
 export function SolanaProvider({ children }: { children: ReactNode }) {
   const { cluster } = useCluster();
-  const endpoint = useMemo(() => cluster.endpoint, [cluster]);
+  // const endpoint = useMemo(() => cluster.endpoint, [cluster]);
+  const endpoint = process.env.NEXT_PUBLIC_SOLANA_RPC_URL!;
   const wallets = useMemo(
     () => [
       new SolflareWalletAdapter({

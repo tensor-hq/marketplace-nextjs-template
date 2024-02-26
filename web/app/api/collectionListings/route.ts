@@ -4,7 +4,7 @@ export async function GET(request: Request) {
   console.log('[API] collectionListings called!');
 
   const userParams = new URLSearchParams(request.url.split('?')[1]);
-  const { collectionSlug, limit, cursor } = Object.fromEntries(
+  const { collectionSlug, limit, cursor, mint } = Object.fromEntries(
     userParams.entries()
   );
 
@@ -12,13 +12,23 @@ export async function GET(request: Request) {
   // console.log('collectionSlug: ', collectionSlug);
   // console.log('limit: ', limit);
   // console.log('cursor: ', cursor);
+  // console.log('mint: ', mint);
 
+  const url = `https://api.mainnet.tensordev.io/api/v1/mint/collection`;
+  const queryParams = new URLSearchParams();
+  queryParams.append('slug', collectionSlug);
+  queryParams.append('sortBy', 'ListingPriceAsc');
+  queryParams.append('limit', limit);
+  if (cursor) {
+    queryParams.append('cursor', cursor);
+  }
+  if (mint) {
+    queryParams.append('mints', mint);
+  }
+  const fullUrl = `${url}?${queryParams.toString()}`;
+  console.log('fullUrl: ', fullUrl);
   try {
-    const url = `https://api.mainnet.tensordev.io/api/v1/mint/collection?slug=${collectionSlug}&sortBy=ListingPriceAsc&limit=${limit}&onlyListings=true${
-      cursor ? `&cursor=${cursor}` : ''
-    }`;
-
-    const response = await axios.get(url, {
+    const response = await axios.get(fullUrl, {
       headers: {
         accept: 'application/json',
         'x-tensor-api-key': process.env.TENSOR_API_KEY!,
