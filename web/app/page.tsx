@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useMemo, useState } from 'react'; // Add the missing import statement
+import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import { useWallet } from '@solana/wallet-adapter-react';
@@ -46,7 +46,6 @@ export interface Nft {
   mint: string;
   slug: string;
   frozen: boolean;
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   attributes: Array<any>;
   imageUri: string;
@@ -151,7 +150,7 @@ export default function Home() {
       <main className="flex flex-grow flex-col items-center pt-4">
         <h1 className="text-4xl font-bold mb-4">NFT Marketplace</h1>
         <div className="mb-4">
-          <WalletButton /> 
+          <WalletButton />
           <p className="text-sm pt-2">Balance: {balance}</p>
         </div>
 
@@ -172,7 +171,9 @@ export default function Home() {
               </div>
               <div className="stats-box  p-4">
                 <h2 className="text-lg font-bold">Marketcap</h2>
-                <p>{Math.round( Number(stats.marketCap) / LAMPORTS_PER_SOL)} ◎</p>
+                <p>
+                  {Math.round(Number(stats.marketCap) / LAMPORTS_PER_SOL)} ◎
+                </p>
               </div>
             </div>
           </div>
@@ -195,7 +196,7 @@ export default function Home() {
                 connectedWallet={String(wallet.publicKey?.toBase58())}
                 key={nft.mint}
                 nft={nft}
-                // supply={Number(stats?.numMints) || 0} 
+                // supply={Number(stats?.numMints) || 0}
                 selected={true}
                 signAllTransactions={wallet.signAllTransactions}
               />
