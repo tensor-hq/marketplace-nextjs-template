@@ -11,8 +11,8 @@ export async function GET(request: Request) {
   const blockhash = (await connection.getLatestBlockhash()).blockhash;
 
   // Debugging
-  console.log('mint', mint);
-  console.log('owner', owner);
+  // console.log('mint', mint);
+  // console.log('owner', owner);
 
   try {
     const response = await axios.get(

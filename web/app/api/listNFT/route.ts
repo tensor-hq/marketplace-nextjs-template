@@ -13,11 +13,11 @@ export async function GET(request: Request) {
 
   // Debugging
   // console.log('buyer', buyer);
-  console.log('mint', mint);
-  console.log('owner', owner);
-  console.log('feePayer', owner);
-  console.log('blockhash', blockhash);
-  console.log('price', price);
+  // console.log('mint', mint);
+  // console.log('owner', owner);
+  // console.log('feePayer', owner);
+  // console.log('blockhash', blockhash);
+  // console.log('price', price);
 
   try {
     const response = await axios.get(

@@ -104,7 +104,6 @@ export default function Home() {
         },
       })
       .then((response) => {
-        console.log(response.data.collections[0].stats);
         setStats(response.data.collections[0].stats);
       })
       .catch((error) => {
@@ -120,7 +119,6 @@ export default function Home() {
 
     // route handler
     if (searchParams.get('mint')) {
-      console.log('searchParams.get(mint): ', searchParams.get('mint'));
       fetchData(null, searchParams.get('mint'));
     } else {
       fetchData(cursor);

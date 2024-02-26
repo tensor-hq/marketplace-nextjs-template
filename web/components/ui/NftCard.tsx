@@ -10,7 +10,6 @@ import {
 import { useConnection } from '@solana/wallet-adapter-react';
 import { useTransactionToast } from './ui-layout';
 
-
 interface NFTCardProps {
   nft: Nft;
   connectedWallet: string | null;
@@ -28,7 +27,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
   const { name, imageUri, mint } = nft;
   const { connection } = useConnection();
   const transactionToast = useTransactionToast();
-  
+
   return (
     <div className="nft-card text-sm grid-flow-row grid grid-cols-1">
       {/* Rarity Rank Badge - To Do */}
@@ -118,8 +117,6 @@ const NFTCard: React.FC<NFTCardProps> = ({
                 console.error('Price must be greater than 0');
                 return;
               }
-              console.log('listingPrice: ', listingPrice);
-
               try {
                 const response = await axios.get(`api/listNFT`, {
                   params: {
@@ -146,9 +143,6 @@ const NFTCard: React.FC<NFTCardProps> = ({
                   await connection.confirmTransaction(sig);
                   transactionToast(sig);
                 }
-
-                
-
               } catch (error) {
                 // Handle error here
                 console.error(error);
@@ -249,7 +243,9 @@ const NFTCard: React.FC<NFTCardProps> = ({
               }
             }}
             className="nft-card__buy-button"
-          >Cancel Listing</button>
+          >
+            Cancel Listing
+          </button>
         </div>
       )}
 

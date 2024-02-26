@@ -26,7 +26,6 @@ export async function GET(request: Request) {
     queryParams.append('mints', mint);
   }
   const fullUrl = `${url}?${queryParams.toString()}`;
-  console.log('fullUrl: ', fullUrl);
   try {
     const response = await axios.get(fullUrl, {
       headers: {
