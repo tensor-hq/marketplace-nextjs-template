@@ -68,7 +68,8 @@ const NFTCard: React.FC<NFTCardProps> = ({
                 });
 
                 // Deserialize the transactions
-                const txsToSign = response.data.txs.map((tx) =>
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const txsToSign = response.data.txs.map((tx: any) =>
                   tx.txV0
                     ? VersionedTransaction.deserialize(
                         response.data.txs[0].txV0.data
@@ -108,9 +109,8 @@ const NFTCard: React.FC<NFTCardProps> = ({
             className="w-full block px-4 py-2 my-2 bg-[#641ae6] text-white font-bold rounded transition-colors duration-300 ease-in-out"
 
             onClick={async () => {
-              const listingPrice = Number(
-                document.getElementById('listing-price')?.value!
-              );
+              const listingPriceInput = document.getElementById('listing-price') as HTMLInputElement;
+              const listingPrice = Number(listingPriceInput?.value);
               if (isNaN(listingPrice)) {
                 console.error('Invalid price');
                 return;
@@ -129,7 +129,8 @@ const NFTCard: React.FC<NFTCardProps> = ({
                 });
 
                 // Deserialize the transactions
-                const txsToSign = response.data.txs.map((tx) =>
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const txsToSign = response.data.txs.map((tx: any) =>
                   tx.txV0
                     ? VersionedTransaction.deserialize(
                         response.data.txs[0].txV0.data
@@ -177,7 +178,8 @@ const NFTCard: React.FC<NFTCardProps> = ({
                 });
 
                 // Deserialize the transactions
-                const txsToSign = response.data.txs.map((tx) =>
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const txsToSign = response.data.txs.map((tx: any) =>
                   tx.txV0
                     ? VersionedTransaction.deserialize(
                         response.data.txs[0].txV0.data

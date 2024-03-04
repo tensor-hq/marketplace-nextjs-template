@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   );
 
   try {
-    const url = `https://api.mainnet.tensordev.io/api/v1/collections?slugs=${collectionSlug}&sortBy=statsOverall.volume24h%3Adesc&limit=1`;
+    const url = `https://api.mainnet.tensordev.io/api/v1/collections?slugs=${collectionSlug}&sortBy=statsV2.volume24h:desc&limit=1`;
 
     const response = await axios.get(url, {
       headers: {
@@ -21,6 +21,7 @@ export async function GET(request: Request) {
     return new Response(JSON.stringify(response.data));
   } catch (error) {
     console.log('[API] collectionStats 500 ERROR');
+    console.error(error);
     return new Response(JSON.stringify(error));
   }
 }
