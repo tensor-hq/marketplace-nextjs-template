@@ -21,7 +21,6 @@ export async function GET(request: Request) {
     return new Response(JSON.stringify(response.data));
   } catch (error) {
     console.log('[API] collectionStats 500 ERROR');
-    console.error(error);
     return new Response(JSON.stringify(error));
   }
 }
