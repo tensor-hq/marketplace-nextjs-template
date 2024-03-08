@@ -80,7 +80,7 @@ export default function Home() {
     axios
       .get('api/collectionListings', {
         params: {
-          collectionSlug: process.env.NEXT_PUBLIC_COLLECTION_SLUG!,
+          collectionSlug: process.env.NEXT_PUBLIC_COLLECTION_SLUG_UUID!,
           limit: mint ? 1 : 10,
           cursor,
           mint,
@@ -100,7 +100,7 @@ export default function Home() {
     axios
       .get('api/collectionStats', {
         params: {
-          collectionSlug: process.env.NEXT_PUBLIC_COLLECTION_SLUG!,
+          collectionSlug: process.env.NEXT_PUBLIC_COLLECTION_SLUG_UUID!,
         },
       })
       .then((response) => {
